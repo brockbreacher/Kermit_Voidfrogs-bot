@@ -19,6 +19,7 @@ client.on('ready', () => {
 		() => ['WATCHING', `${client.users.size} Members`],
 		() => ['WATCHING', `It isn't easy being green`],
 		() => ['WATCHING', `The Void Frogs Podcast`],
+		() => ['WATCHING', `https://thevoidfrogs.com`],
 	];
 
 	const gen = InfiniteGenerator(statuses);
