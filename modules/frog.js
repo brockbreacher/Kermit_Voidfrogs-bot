@@ -22,7 +22,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   urls[i+1] = url;
     }
   const embed = new Discord.RichEmbed()
-  .setTitle("?? Here you are!")
+  .setTitle("🐸 Here you are!")
   .setColor('RANDOM')
   .setFooter('/r/frogs')
   .setImage(urls[imgs])
