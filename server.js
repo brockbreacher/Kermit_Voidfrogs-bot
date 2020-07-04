@@ -13,7 +13,7 @@ function* InfiniteGenerator(array) {
 }
 
 client.on('ready', () => {
-    // console.log("change this part") // needed for startup i think
+     console.log("change this part") // needed for ptero startup
 	const statuses = [
 		() => ['WATCHING', `People Type !help`],
 		() => ['WATCHING', `${client.users.size} Members`],
