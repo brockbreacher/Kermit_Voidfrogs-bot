@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-client.killme = new Map();
 
 const settings = require('./settings.json');
 const prefix = settings.prefix 
@@ -18,6 +17,8 @@ client.on('ready', () => {
 	const statuses = [
 		() => ['WATCHING', `People Type !help`],
 		() => ['WATCHING', `${client.users.size} Members`],
+		() => ['WATCHING', `It isn't easy being green`],
+		() => ['WATCHING', `The Void Frogs Podcast`],
 	];
 
 	const gen = InfiniteGenerator(statuses);
