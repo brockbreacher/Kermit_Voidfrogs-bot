@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const settings = require('./settings.json');
-const prefix = settings.prefix 
+const prefix = settings.prefix
 
 function* InfiniteGenerator(array) {
 	while (true) {

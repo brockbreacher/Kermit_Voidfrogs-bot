@@ -2,8 +2,7 @@ const Discord = require("discord.js");
 const request = require("request");
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  let imgs = Math.floor(Math.random() * 80);
-  let url = ['https://www.reddit.com/r/FrogLoaf/.json?sort=rising&t=hour&limit=100'];
+  let url = ['https://www.reddit.com/r/frogloaf/.json?sort=rising&t=hour&limit=100'];
   request({
     method: 'GET',
     uri: url[Math.floor(Math.random() * url.length)]
@@ -13,14 +12,19 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       return;
     }
 
-  data = JSON.parse(data);
-  var mainObj = data.data.children;
-  var urls = {};
+    data = JSON.parse(data);
+    var mainObj = data.data.children;
+    var urls = []
 
-  for(let i = 0; i < mainObj.length; i++) {
-  let url = mainObj[i].data.url;
-  urls[i+1] = url;
+    for(let i = 0; i < mainObj.length; i++) {
+      if (mainObj[i].data.over_18 === true) {
+        continue;
+      }
+      let url = mainObj[i].data.url;
+      urls.push(url);
     }
+
+    let imgs = Math.floor(Math.random() * urls.length);
   const embed = new Discord.RichEmbed()
   .setTitle("🐸 Here you are!")
   .setColor('RANDOM')
