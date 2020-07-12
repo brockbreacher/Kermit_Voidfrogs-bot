@@ -31,6 +31,19 @@ client.on('ready', () => {
 	}, 60000);
 });
 
+client.on("messageReactionAdd", async (messageReaction, user) => {
+	// ignore own reactions
+	if (user.id === client.user.id) return;
+	// only trash can reactions
+	if (messageReaction.emoji.toString() !== "\u{1F5D1}") return;
+	// only if i've also reacted to it
+	if (!messageReaction.me) return;
+	// only if it's my message
+	if (messageReaction.message.author.id !== client.user.id) return;
+	// then i will delete the message
+	await messageReaction.message.delete()
+
+});
 
 client.on("message", async message => {
     if (message.author.bot) return

@@ -30,7 +30,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   .setColor('RANDOM')
   .setFooter('/r/FrogLoaf')
   .setImage(urls[imgs])
-  message.channel.send({embed});
+  message.channel.send({embed}).then(msg => msg.react("\u{1F5D1}"))
 
   if(client.user && message.content === "undefined") {
       message.delete()
